@@ -13,7 +13,9 @@ import io
 import numpy
 from PIL import Image
 from PIL import ImageEnhance
+
 from urllib import request
+from urllib.parse import quote
 
 from requests import session, post, adapters
 import urllib3, ssl

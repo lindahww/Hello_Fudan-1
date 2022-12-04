@@ -317,7 +317,8 @@ if __name__ == '__main__':
     
     #Wechat_Notification 
     with request.urlopen(
-        quote('https://sctapi.ftqq.com/SCT166821TV4EnLuDhWEdGyLAtGi1ieUW3.send?title=PingAnFuDan')) as response:
+        quote('https://sctapi.ftqq.com/SCT166821TV4EnLuDhWEdGyLAtGi1ieUW3.send?title=PingAn',
+              safe='/:?=&')) as response:
         response = json.loads(response.read().decode('utf-8'))
 
     daily_fudan.check()

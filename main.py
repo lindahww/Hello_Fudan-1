@@ -312,15 +312,14 @@ if __name__ == '__main__':
     daily_fudan = Zlapp(uid, psw,
                         url_login=zlapp_login, url_code=code_url)
     daily_fudan.login()
+    
+    #Wechat_Notification 
+    with request.urlopen(
+        quote('https://sctapi.ftqq.com/SCT166821TV4EnLuDhWEdGyLAtGi1ieUW3.send?title=PingAnFuDan')) as response:
+        response = json.loads(response.read().decode('utf-8'))
 
     daily_fudan.check()
     daily_fudan.checkin()
-    
-    #Wechat_Notification
-    with request.urlopen(
-        quote('https://sctapi.ftqq.com/SCT166821TV4EnLuDhWEdGyLAtGi1ieUW3.send?title=平安复旦',
-                  safe='/:?=&')) as response:
-        response = json.loads(response.read().decode('utf-8'))
     
     # 再检查一遍
     daily_fudan.check()
